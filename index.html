@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric's Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c5ae02c9e7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <h1>Hi, I'm <span>Eric</span></h1>
+                <p>Programmer && UI/UX Designer</p>
+            </div>
+        </div>
+    </div>
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/Snowboard.jpg" alt="" style="width: 350px;">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>I am currently a Junior at CU Boulder studying Information Management, Business Analytics, and Computer Science. I am passionate about technology and
+                        the potential it has to change lives including my own. I recently started doing UI/UX, and I am excited to see where it takes me!
+                    </p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI/UX</span><br>HTML, CSS, JavaScript, NodeJS</li>
+                            <li><span>Low Code</span><br>Skuid, Zapier, Twilio, Typeform</li>
+                            <li><span>Analytics</span><br>Python, SQL, C++</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>Business Analytics</span><br>Building data pipelines for performing department-level analysis</li>
+                            <li><span>Computer Science</span><br>Multiple computer science projects involving full stack development</li>
+                            <li><span>Finance</span><br>Entry level finance internship where I leanred the ins and outs of school society finances</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>Computer Science</span><br>Computer Systems, Software Development Methods, Data Structures</li>
+                            <li><span>Business</span><br>Business Analytics, Low Code, Python, Business Data Management</li>
+                            <li><span>Entrepreneurship</span><br>Entrepreneurial Envrionments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ----------services------------ -->
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-sharp fa-solid fa-crop-simple"></i>
+                    <h2>Data MGMT</h2>
+                    <p>I am able to build a variety of different back end systems that will allow for better data management</p>
+                </div>
+                <div>
+                    <i class="fa-brands fa-app-store"></i>
+                    <h2>Web App</h2>
+                    <p>I can create a cohesive web application tailored to you and your customer's needs</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>UI Design</h2>
+                    <p>From low code to full customization, I am able to create stunning front end designs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------portfolio---------- -->
+    <!-- <div id="portfolio">
+        <div class="container">
+            <h1>My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="" alt="">
+                </div>
+                <div class="work">
+                    <img src="" alt="">
+                </div>
+                <div class="work">
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- contact -->
+    <div id="contact">
+        <div class="container">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fas fa-paper-plane"></i>osickaer@gmail.com</p>
+                <p><i class="fas fa-phone-square-alt"></i>720-305-8915</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/eric.osicka/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/eros6895" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+                <a href="./files/Resume.pdf" download class="btn btn2">Download Resume</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        console.log(tabname);
+        document.getElementById(tabname).classList.add("active-tab");
+        console.log( document.getElementById(tabname).classList);
+    }
+
+</script>
+
+<script>
+
+    var sidemenu = document.getElementById("sidemenu")
+
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+
+</script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzswvvQzfOWmYsYmJBFhAXcYFXWrkEcrVpPQ0atiz5fsaX-Z0DCLiW7FEOZTSP38PQs/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById('msg')
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            }, 5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+</script>
+</html>
